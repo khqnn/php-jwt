@@ -1,4 +1,4 @@
-# php-jwt
+# php-jwt [![Generic badge](https://img.shields.io/badge/version-v1.0-green.svg)](https://shields.io/)
 
 PHP implementation of Json Web Token based on RFC standards.
 
