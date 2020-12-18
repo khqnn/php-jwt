@@ -9,12 +9,12 @@ Easy to use. Generate and validate JW tokens in any php script.
 Generate Json Web Tokens
 ```markdown
     $secret = "96CC59D4F8D6131D816D251AFDD12";
-    $exp = 24*60*60*1000; // 24 hours in milli seconds
+    $one_day = 86400000; // 24 hours in milli seconds
     $claims = ["sub"=>"1234567890", "name"=>"John Doe"];
 
     require_once("jwt_class.php");
     $jwt_class = new JWT_class();
-    $jwt_res = $jwt_class->generateJWT($claims, $secret, $exp); // Default HS256
+    $jwt_res = $jwt_class->generateJWT($claims, $secret, $one_day); // Default HS256
 
 ```
 
