@@ -50,7 +50,7 @@ class JWT_class {
 
 
         if($token=='')
-            return array('message'=>'no authorization token', 'status'=>401);
+            return ['message'=>'no authorization token', 'status'=>401];
         $seg = explode('.', $token);
         $header = json_decode(base64_decode($seg[0]));
         $payload = json_decode(base64_decode($seg[1]));
@@ -58,22 +58,22 @@ class JWT_class {
         $alg = $this->getHmacAlgo($header->alg);
 
         if(!isset($payload->exp) ) // if exp not attached with token
-            return array('message'=>'invalid token', 'status'=>401);
+            return ['message'=>'invalid token', 'status'=>401];
         elseif($payload->exp<$this->current_time_millis()) // if expiry has been passed
-            return array('message'=>'token expired', 'status'=>401);
+            return ['message'=>'token expired', 'status'=>401];
     
         // here we know token is still active
         $hash = $this->base64UrlEncode(hash_hmac($alg['hmac'], $seg[0].'.'.$seg[1], $key, true));
         if ($hash==$seg[2]) 
-            return array('message'=>"", "status"=>200,"result"=>$payload);
+            return ['message'=>"", "status"=>200,"result"=>$payload];
         else
-            return array('message'=>'unauthorized request', 'status'=>401);
+            return ['message'=>'unauthorized request', 'status'=>401];
     
        
         
     }
 
-    public function generateJWT($data=array(), $key='', $exp=300000, $alg='HS256')
+    public function generateJWT($data=[], $key='', $exp=300000, $alg='HS256')
     {
         /*
             params:
@@ -100,7 +100,7 @@ class JWT_class {
 
     }
 
-    public function generateJWTWithCustomExp($data=array(), $key='', $exp='', $alg='HS256')
+    public function generateJWTWithCustomExp($data=[], $key='', $exp='', $alg='HS256')
     {
         /*
             params:
