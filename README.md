@@ -7,8 +7,7 @@ Supported Algorithms
 2.  HS384
 3.  HS512
 
-exp check: enabled
-
+# validation responses
 While validating a Json Web Token with secret key then returned response might be one of these
 
 {"message": "", "status": 200, "result": "data"}
@@ -20,3 +19,6 @@ While validating a Json Web Token with secret key then returned response might b
 {"message": "token expired", "status": 401}
 
 {"message": "unauthorized request", "status": 401}
+
+
+# exp check: enabled
