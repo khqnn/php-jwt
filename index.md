@@ -1,37 +1,44 @@
-## Welcome to GitHub Pages
+## Intro
 
-You can use the [editor on GitHub](https://github.com/khaqanashraf/php-jwt/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+jwt-php is the light weight ready to use standard php class module which can be used in any php framework like Codeigniter, Laravel or in Core PHP. It is a stand alone module to generate and validate standard Json Web Token on servers running php scripts.
 
 ### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Easy to use. Generate and validate JW tokens in any php script.
 
+Generate Json Web Tokens
 ```markdown
-Syntax highlighted code block
+    $secret = "96CC59D4F8D6131D816D251AFDD12";
+    $exp = 24*60*60*1000; // 24 hours in milli seconds
+    $claims = ["sub"=>"1234567890", "name"=>"John Doe"];
 
-# Header 1
-## Header 2
-### Header 3
+    require_once("jwt_class.php");
+    $jwt_class = new JWT_class();
+    $jwt_res = $jwt_class->generateJWT($claims, $secret, $exp); // Default HS256
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Validate Json Web Tokens
+```markdown
+    $secret = "96CC59D4F8D6131D816D251AFDD12";
+    $token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNjA4MjczNTExMjE4LjI3NjksImV4cCI6MTYwODM1OTkxMTIxOC4yODg4fQ.LXb9nK7BjZ-DMBrGdyqcqe81Yq53S8o8mqZ7JDGaKxY"
+    
+    require_once("jwt_class.php");
+    $jwt_class = new JWT_class();
+    $jwt_res = $jwt_class->validateJWT($token, $secret);
 
-### Jekyll Themes
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/khaqanashraf/php-jwt/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
-### Support or Contact
+### Validation Response
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+{"message": "", "status": 200, "result": "data"}
+
+{"message": "no authorization token", "status": 401}
+
+{"message": "invalid token", "status": 401}
+
+{"message": "token expired", "status": 401}
+
+{"message": "unauthorized request", "status": 401}
+
