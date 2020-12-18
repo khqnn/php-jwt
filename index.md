@@ -21,7 +21,7 @@ Generate Json Web Tokens
 Validate Json Web Tokens
 ```markdown
     $secret = "96CC59D4F8D6131D816D251AFDD12";
-    $token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNjA4MjczNTExMjE4LjI3NjksImV4cCI6MTYwODM1OTkxMTIxOC4yODg4fQ.LXb9nK7BjZ-DMBrGdyqcqe81Yq53S8o8mqZ7JDGaKxY"
+    $token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNjA4MjczNTExMjE4LjI3NjksImV4cCI6MTYwODM1OTkxMTIxOC4yODg4fQ.LXb9nK7BjZ-DMBrGdyqcqe81Yq53S8o8mqZ7JDGaKxY";
     
     require_once("jwt_class.php");
     $jwt_class = new JWT_class();
