@@ -14,6 +14,7 @@
 
     echo $jwt_res;
     
+    
     /*
         Response: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNjA4MjczNTExMjE4LjI3NjksImV4cCI6MTYwODM1OTkxMTIxOC4yODg4fQ.LXb9nK7BjZ-DMBrGdyqcqe81Yq53S8o8mqZ7JDGaKxY
 
@@ -34,6 +35,14 @@
         Note:
                 'iat' claim added explicitly
                 'exp' claim is the sum of 'iat' and '$exp' from parameter
+
+    */
+
+    $validation_res = $jwt_class->validateJWT($jwt_res, $secret);
+
+    /*
+        Note: if token is not expired and validated then it would return payload's data
+              else it would return a response with an error message
     */
 
 
