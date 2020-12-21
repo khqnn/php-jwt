@@ -8,5 +8,10 @@
             "name": "Khaqan",
             "email": "khaqan_ashraf@yahoo.com"
         }
-    ]
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {"khaqan\\JWT\\": "src/"}
+    },
+    "require": {}
 }
