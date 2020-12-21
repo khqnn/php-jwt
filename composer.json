@@ -1,0 +1,13 @@
+{
+    "name": "khaqan/php-jwt",
+    "description": "Independant php calss module for standard JWT",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Khaqan",
+            "email": "khaqan_ashraf@yahoo.com"
+        }
+    ],
+    "require": {}
+}
