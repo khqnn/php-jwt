@@ -8,7 +8,5 @@
             "name": "Khaqan",
             "email": "khaqan_ashraf@yahoo.com"
         }
-    ],
-    "minimum-stability": "stable",
-    "require": {}
+    ]
 }
